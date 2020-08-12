@@ -1,0 +1,22 @@
+/**************
+* coding challenge 1
+* Mark and John are trying to compare their BMI(body mass index),which is calculated using the formula : BMI = mass / height ^ 2 = mass / (height * height)
+* (mass in kg and height in meter)
+* 1.store Mark's and John's mass and height in variables
+* 2.calculate both their BMIs
+* 3.create a boolean variable containing information about whether a Mark has a higher BMI than John.
+* 4,print a string to the console containing the variable from step 3(something like "Is Mark's BMI higher than John's? true ").
+*/
+
+//Answer:
+
+var markHeight = 1.5; //meter
+var johnHeight = 1.6; //meter
+var markMass = 55; //kg
+var johnMass = 57; //kg
+var markBmi = markMass / (markHeight * markHeight );
+var johnBmi = johnMass / (johnHeight * johnHeight );
+var bmi = markBmi > johnBmi ;
+console.log('Is Mark\'s BMI higher than John\'s ? '+ ' ' + bmi);
+console.log(johnBmi);
+console.log(markBmi);
