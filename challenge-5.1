@@ -1,0 +1,76 @@
+/************
+ * Code challenge 5
+ */
+
+
+var bala = {
+    fullName : 'Balasaranya',
+    bills : [124, 48, 268, 180, 42],
+    calcTip : function (){
+        this.tips = [];
+        this.finalValues = [];
+        for(var i = 0; i < this.bills.length ;i++){
+            //Determine percentage based on tipping rules
+            var percentage;
+            if (this.bills[i] < 50) {
+                percentage = .2;
+            } else if(this.bills[i] >= 50 && this.bills[i] < 200) {
+                percentage = .15;
+            } else {
+                percentage = .1;
+            }
+
+            //Add results to the corresponding arrays
+            this.tips[i] = this.bills[i] * percentage;
+            this.finalValues[i] = this.bills[i] + this.tips[i];
+        }
+    }
+}
+
+var saranya = {
+    fullName : 'Saranya',
+    bills : [77, 475, 110, 45],
+    calcTip : function (){
+        this.tips = [];
+        this.finalValues = [];
+        for(var i = 0; i < this.bills.length ;i++){
+            //Determine percentage based on tipping rules
+            var percentage;
+            var bill = this.bills[i];
+            if (bill < 100) {
+                percentage = .2;
+            } else if(bill >= 100 && bill < 300) {
+                percentage = .1;
+            } else {
+                percentage = .25;
+            }
+
+            //Add results to the corresponding arrays
+            this.tips[i] = bill * percentage;
+            this.finalValues[i] = bill + bill * percentage;
+        }
+    }
+}
+
+function calcAvg(tips){
+    var sum = 0;
+    for (var i = 0 ; i < tips.length ; i++){
+        sum = sum + tips[i];
+    }
+    return sum / tips.length;
+    
+}
+
+//Do the calculations
+bala.calcTip();
+saranya.calcTip();
+console.log(bala,saranya);
+bala.average = calcAvg(bala.tips);
+saranya.average = calcAvg(saranya.tips);
+if(bala.average > saranya.average) {
+    console.log('Bala has the highest tip average');
+} else if(bala.average < saranya.average){
+    console.log('Saranya has the highest tip average');
+} else{
+    console.log('Both has same tip average');
+}
